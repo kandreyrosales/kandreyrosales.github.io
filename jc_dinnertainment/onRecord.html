@@ -11,6 +11,7 @@
       grist.ready();
       grist.onRecord(function(record) {
         document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+        console.log(grist.docApi.listTables());
       });
     </script>
   </body>
