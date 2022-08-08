@@ -10,7 +10,8 @@
     <script>
       grist.ready();
       grist.onRecord(function(record) {
-        document.getElementById('readout').innerHTML = JSON.stringify(grist.docApi.listTables(), null, 2);
+        let tables = await grist.docApi.listTables();
+        document.getElementById('readout').innerHTML = JSON.stringify(tables, null, 2);
       });
     </script>
   </body>
