@@ -11,11 +11,7 @@
       grist.ready();
       grist.onRecord(function(record) {
         document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
-        let id_table = "Choices"
-        grist.docApi.fetchTable().then(id_table => {
-          console.log(id_table)
-        })
-        console.log("New message")
+        console.log(await grist.fetchTable("Choice"));
       });
     </script>
   </body>
