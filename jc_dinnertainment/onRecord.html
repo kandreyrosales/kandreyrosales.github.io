@@ -172,6 +172,7 @@
 	var request = new XMLHttpRequest()
 	request.open('GET', 'https://docs.getgrist.com/api/docs/sMCgxRM28xWh9PdQ985ptY/tables/Choices/records?filter={"Invoice_Name": [4500]}', true)
 	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.setRequestHeader("Access-Control-Request-Method", "GET, POST, DELETE, PUT, OPTIONS");
 	request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 	request.setRequestHeader("Accept", "application/json");
 	request.setRequestHeader("Authorization", "Bearer 8853a46545af13ad73397c65fd7e396fc4c58cfa");
