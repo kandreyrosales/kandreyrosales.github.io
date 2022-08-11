@@ -217,7 +217,7 @@
 	};
 	grist.onRecord(function(record) {
 		console.log(record, "record kevin");
-		const invoice_number = JSON.stringify(record).Invoice_Number;
+		const invoice_number = record.Invoice_Number;
 		console.log(invoice_number, "invoice number kevin")
 		main(invoice_number)
 	});
