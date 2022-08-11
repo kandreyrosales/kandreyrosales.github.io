@@ -169,34 +169,36 @@
 </div>
 </body>
 <script>
-	var request = new XMLHttpRequest()
-	request.open('GET', 'https://docs.getgrist.com/api/docs/sMCgxRM28xWh9PdQ985ptY/tables/Choices/records?filter={"Invoice_Number": [4500]}', true)
-	request.setRequestHeader("Access-Control-Allow-Origin", "*");
-	request.setRequestHeader("Access-Control-Allow-Headers", "*");
-	request.setRequestHeader("Access-Control-Allow-Method", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
-	request.setRequestHeader("Authorization", "Bearer 8853a46545af13ad73397c65fd7e396fc4c58cfa");
-	request.onreadystatechange = function () {
-		if (request.readyState === 4 && request.status === 200) {
-
-			const table_information = JSON.parse(request.responseText).records
-			console.log(table_information);
-
-			const groupBy = (array, key) => {
-				// Return the reduced array
-				return array.reduce((result, currentItem) => {
-					// If an array already present for key, push it to the array. Otherwise create an array and push the object.
-					(result[currentItem["fields"][key]] = result[currentItem["fields"][key]] || []).push( currentItem );
-					// return the current iteration `result` value, this will be the next iteration's `result` value and accumulate
-					return result;
-
-				}, {}); // Empty object is the initial value for result object
-			};
-			const info_grouped_by_date = groupBy(table_information, "Date")
-			console.log(info_grouped_by_date);
-			// let table = document.getElementById("custom_jc_table");
-			// generateTable(table, info_grouped_by_date)
-		}};
-	request.send();
+	// var request = new XMLHttpRequest()
+	// request.open(
+	// 		'GET',
+	// 		'https://docs.getgrist.com/api/docs/sMCgxRM28xWh9PdQ985ptY/tables/Choices/records?filter={"Invoice_Number": [4500]}', true)
+	// request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	// request.setRequestHeader("Access-Control-Allow-Headers", "*");
+	// request.setRequestHeader("Access-Control-Allow-Method", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
+	// request.setRequestHeader("Authorization", "Bearer 8853a46545af13ad73397c65fd7e396fc4c58cfa");
+	// request.onreadystatechange = function () {
+	// 	if (request.readyState === 4 && request.status === 200) {
+	//
+	// 		const table_information = JSON.parse(request.responseText).records
+	// 		console.log(table_information);
+	//
+	// 		const groupBy = (array, key) => {
+	// 			// Return the reduced array
+	// 			return array.reduce((result, currentItem) => {
+	// 				// If an array already present for key, push it to the array. Otherwise create an array and push the object.
+	// 				(result[currentItem["fields"][key]] = result[currentItem["fields"][key]] || []).push( currentItem );
+	// 				// return the current iteration `result` value, this will be the next iteration's `result` value and accumulate
+	// 				return result;
+	//
+	// 			}, {}); // Empty object is the initial value for result object
+	// 		};
+	// 		const info_grouped_by_date = groupBy(table_information, "Date")
+	// 		console.log(info_grouped_by_date);
+	// 		// let table = document.getElementById("custom_jc_table");
+	// 		// generateTable(table, info_grouped_by_date)
+	// 	}};
+	// request.send();
 
 	// function generateTable(table, data) {
 	// 	for (let element of data) {
@@ -208,6 +210,24 @@
 	// 		}
 	// 	}
 	// }
-
+	grist.ready();
+	async function main(){
+		const rows = await grist.docApi.fetchTable("Choices");
+		const filtred = records(rows).filter(r => r.Invoice_Number == "4500");
+		console.log(filtred);
+	};
+	window.onload = main;
+	function records(rows) {
+		// Convert column representation to record representation
+		const list = [];
+		for(let i=0; i < rows.id.length; i++) {
+			const record = {};
+			for(const key of Object.keys(rows)) {
+				record[key] = rows[key][i];
+			}
+			list.push(record);
+		}
+		return list;
+	}
 </script>
 </html>
