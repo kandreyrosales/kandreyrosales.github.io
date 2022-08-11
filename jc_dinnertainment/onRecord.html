@@ -105,6 +105,7 @@
 </head>
 
 <body>
+<pre id="readout">Waiting for data...</pre>
 <div class="invoice-box">
 	<table cellpadding="0" cellspacing="0">
 		<tr class="top">
@@ -214,6 +215,7 @@
 		grist.onRecord(function(record) {
         	console.log(record)
 			const record_invoice = record
+			document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
       	});
 		const rows = await grist.docApi.fetchTable("Choices");
 		const filtred = records(rows).filter(r => r.Invoice_Number == "4500");
