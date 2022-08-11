@@ -211,6 +211,10 @@
 	// }
 	grist.ready();
 	async function main(){
+		grist.onRecord(function(record) {
+        	console.log(record)
+			const record_invoice = record
+      	});
 		const rows = await grist.docApi.fetchTable("Choices");
 		const filtred = records(rows).filter(r => r.Invoice_Number == "4500");
 		console.log(filtred);
