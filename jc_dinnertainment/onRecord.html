@@ -212,8 +212,8 @@
 	// }
 	grist.ready();
 	async function main(){
-		const new_value = grist.onRecords(function(records) {
-			return JSON.stringify(records).Invoice_Number;
+		const new_value = grist.onRecord(function(record) {
+			return JSON.stringify(record).Invoice_Number;
       	});
 		const rows = await grist.docApi.fetchTable("Choices");
 		const filtred = records(rows).filter(r => r.Invoice_Number === new_value);
