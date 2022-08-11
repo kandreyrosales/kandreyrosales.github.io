@@ -225,6 +225,7 @@
 	function get_records(rows) {
 		// Convert column representation to record representation
 		const list = [];
+		console.log(rows, "rows=kevin")
 		for(let i=0; i < rows.id.length; i++) {
 			const record = {};
 			for(const key of Object.keys(rows)) {
