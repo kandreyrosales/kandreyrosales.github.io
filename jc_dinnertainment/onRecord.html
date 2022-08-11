@@ -211,15 +211,15 @@
 	// 	}
 	// }
 	grist.ready();
-	async function main(){
-		const new_value = grist.onRecord(function(record) {
-			return JSON.stringify(record).Invoice_Number;
-      	});
-		const rows = await grist.docApi.fetchTable("Choices");
-		const filtred = records(rows).filter(r => r.Invoice_Number === new_value);
+
+	grist.onRecord(function(record) {
+		const invoice_number = JSON.stringify(record).Invoice_Number;
+		const rows = grist.docApi.fetchTable("Choices");
+		const filtred = records(rows).filter(r => r.Invoice_Number === invoice_number);
 		console.log(filtred);
-	};
-	window.onload = main;
+	});
+
+
 	function records(rows) {
 		// Convert column representation to record representation
 		const list = [];
