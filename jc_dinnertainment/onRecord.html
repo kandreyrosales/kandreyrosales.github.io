@@ -188,21 +188,21 @@
 			};
 			const info_grouped_by_date = groupBy(table_information, "Date")
 			console.log(info_grouped_by_date);
-			let table = document.getElementById("custom_jc_table");
-			generateTable(table, info_grouped_by_date)
+			// let table = document.getElementById("custom_jc_table");
+			// generateTable(table, info_grouped_by_date)
 		}};
 	request.send();
 
-	function generateTable(table, data) {
-		for (let element of data) {
-			let row = table.insertRow();
-			for (key in element) {
-				let cell = row.insertCell();
-				let text = document.createTextNode(element[key]);
-				cell.appendChild(text);
-			}
-		}
-	}
+	// function generateTable(table, data) {
+	// 	for (let element of data) {
+	// 		let row = table.insertRow();
+	// 		for (key in element) {
+	// 			let cell = row.insertCell();
+	// 			let text = document.createTextNode(element[key]);
+	// 			cell.appendChild(text);
+	// 		}
+	// 	}
+	// }
 
 </script>
 </html>
