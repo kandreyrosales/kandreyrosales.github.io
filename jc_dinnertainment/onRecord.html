@@ -212,7 +212,7 @@
 	// }
 	grist.ready();
 	async function main(){
-		const new_value = grist.onRecords(function(record) {
+		const new_value = grist.onRecords(function(records) {
 			return JSON.stringify(record).Invoice_Number;
       	});
 		const rows = await grist.docApi.fetchTable("Choices");
