@@ -213,12 +213,10 @@
 	grist.ready();
 	async function main(){
 		grist.onRecord(function(record) {
-        	console.log(record)
-			const record_invoice = record
-			document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+			const record_to_filter = JSON.stringify(record).Invoice_Number;
       	});
 		const rows = await grist.docApi.fetchTable("Choices");
-		const filtred = records(rows).filter(r => r.Invoice_Number == "4500");
+		const filtred = records(rows).filter(r => r.Invoice_Number === record_to_filter);
 		console.log(filtred);
 	};
 	window.onload = main;
