@@ -229,7 +229,7 @@
 			// Return the reduced array
 			return array.reduce((result, currentItem) => {
 				// If an array already present for key, push it to the array. Otherwise create an array and push the object.
-				(result[currentItem["fields"][key]] = result[currentItem["fields"][key]] || []).push( currentItem );
+				(result[currentItem[key]] = result[currentItem[key]] || []).push( currentItem );
 				// return the current iteration `result` value, this will be the next iteration's `result` value and accumulate
 				return result;
 
