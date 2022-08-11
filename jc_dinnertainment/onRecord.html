@@ -168,28 +168,6 @@
 	</table>
 </div>
 <script>
-	// var request = new XMLHttpRequest()
-	// request.open(
-	// 		'GET',
-	// 		'https://docs.getgrist.com/api/docs/sMCgxRM28xWh9PdQ985ptY/tables/Choices/records?filter={"Invoice_Number": [4500]}', true)
-	// request.setRequestHeader("Access-Control-Allow-Origin", "*");
-	// request.setRequestHeader("Access-Control-Allow-Headers", "*");
-	// request.setRequestHeader("Access-Control-Allow-Method", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
-	// request.setRequestHeader("Authorization", "Bearer 8853a46545af13ad73397c65fd7e396fc4c58cfa");
-	// request.onreadystatechange = function () {
-	// 	if (request.readyState === 4 && request.status === 200) {
-	//
-	// 		const table_information = JSON.parse(request.responseText).records
-	// 		console.log(table_information);
-	//
-	//
-	// 		console.log(info_grouped_by_date);
-	// 		// let table = document.getElementById("custom_jc_table");
-	// 		// generateTable(table, info_grouped_by_date)
-	// 	}};
-	// request.send();
-
-
 	grist.ready();
 	function generateTable(table, data) {
 		for (let element of data) {
@@ -206,6 +184,7 @@
   		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
+		console.log(data_grouped_by_date, "data to iterate");
 		generateTable(table, data_grouped_by_date)
 	};
 	grist.onRecord(function(record) {
