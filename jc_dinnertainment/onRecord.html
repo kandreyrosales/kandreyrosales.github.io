@@ -189,22 +189,24 @@
 	// 	}};
 	// request.send();
 
-	// function generateTable(table, data) {
-	// 	for (let element of data) {
-	// 		let row = table.insertRow();
-	// 		for (key in element) {
-	// 			let cell = row.insertCell();
-	// 			let text = document.createTextNode(element[key]);
-	// 			cell.appendChild(text);
-	// 		}
-	// 	}
-	// }
+
 	grist.ready();
+	function generateTable(table, data) {
+		for (let element of data) {
+			let row = table.insertRow();
+			for (key in element) {
+				let cell = row.insertCell();
+				let text = document.createTextNode(element[key]);
+				cell.appendChild(text);
+			}
+		}
+	}
 	async function main(invoice_number){
   		const rows = await grist.docApi.fetchTable("Choices");
   		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
-		  console.log(filtered, "filtered kevin")
-		console.log(group_rows_by_date(filtered));
+		const data_grouped_by_date = group_rows_by_date(filtered);
+		let table = document.getElementById("custom_jc_table");
+		generateTable(table, data_grouped_by_date)
 	};
 	grist.onRecord(function(record) {
 		const invoice_number = record.Invoice_Number;
