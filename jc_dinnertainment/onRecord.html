@@ -214,18 +214,17 @@
 	async function main(invoice_number){
   		const rows = await grist.docApi.fetchTable("Choices");
   		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
-  		console.log(filtered);
+  		console.log(filtered, "data filtered kevin");
 	};
 	grist.onRecord(function(record) {
 		const invoice_number = JSON.stringify(record).Invoice_Number;
-		console.log(invoice_number)
+		console.log(invoice_number, "invoice number kevin")
 		main(invoice_number)
 	});
 
 	function get_records(rows) {
 		// Convert column representation to record representation
 		const list = [];
-		console.log(rows, "rows=kevin")
 		for(let i=0; i < rows.id.length; i++) {
 			const record = {};
 			for(const key of Object.keys(rows)) {
