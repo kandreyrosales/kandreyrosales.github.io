@@ -203,6 +203,7 @@
 	async function main(invoice_number){
   		const rows = await grist.docApi.fetchTable("Choices");
   		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
+		  console.log(filtered, "filtered kevin")
 		console.log(group_rows_by_date(filtered));
 	};
 	grist.onRecord(function(record) {
