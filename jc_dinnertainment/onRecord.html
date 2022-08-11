@@ -213,11 +213,12 @@
 	grist.ready();
 	async function main(invoice_number){
   		const rows = await grist.docApi.fetchTable("Choices");
-  		const filtred = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
-  		console.log(filtred);
+  		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
+  		console.log(filtered);
 	};
 	grist.onRecord(function(record) {
 		const invoice_number = JSON.stringify(record).Invoice_Number;
+		console.log(invoice_number)
 		main(invoice_number)
 	});
 
