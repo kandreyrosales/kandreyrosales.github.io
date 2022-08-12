@@ -170,12 +170,36 @@
 <script>
 	grist.ready();
 	function generateTable(table, data) {
-		for (let element of data) {
+		for (element in data) {
 			let row = table.insertRow();
-			for (key in data[element]) {
-				let cell = row.insertCell();
-				let text = document.createTextNode(key);
-				cell.appendChild(text);
+			for (item in data[element]) {
+				let date = row.insertCell(0);
+				date.innerHTML = "NEW CELL1";
+
+				let arrival_time = row.insertCell(1);
+				arrival_time.innerHTML = "NEW CELL1";
+
+				let service_begins = row.insertCell(2);
+				service_begins.innerHTML = "NEW CELL1";
+
+				let service_ends = row.insertCell(3);
+				service_ends.innerHTML = "NEW CELL1";
+
+				let menu_item = row.insertCell(4);
+				menu_item.innerHTML = "NEW CELL1";
+
+				let service = row.insertCell(5);
+				service.innerHTML = "NEW CELL1";
+
+				let guest = row.insertCell(6);
+				guest.innerHTML = "NEW CELL1";
+
+				let precio_pp = row.insertCell(7);
+				precio_pp.innerHTML = "NEW CELL1";
+
+				let extra_order = row.insertCell(8);
+				extra_order.innerHTML = "NEW CELL1";
+
 			}
 		}
 	}
