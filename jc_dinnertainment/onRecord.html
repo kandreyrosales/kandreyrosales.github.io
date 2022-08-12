@@ -177,6 +177,7 @@
 		for (element in data) {
 			for (item in data[element]) {
 				let row = table.insertRow();
+
 				let date = row.insertCell(0);
 				date.innerHTML = item.Date;
 
@@ -190,13 +191,12 @@
 				service_ends.innerHTML = item.Service_Ends;
 
 				let menu_item = row.insertCell(4);
-				menu_item.innerHTML = item.Menu_Item;
+				menu_item.innerHTML = item.Menu_Item_Name;
 
 				let service = row.insertCell(5);
-				service.innerHTML = item.Service_Option_Name;
+				service.innerHTML = item.Service_Option;
 
 				let guest = row.insertCell(6);
-
 				guest.innerHTML = item.Guests;
 
 				let precio_pp = row.insertCell(7);
