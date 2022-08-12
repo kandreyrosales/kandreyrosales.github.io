@@ -176,6 +176,7 @@
 	function generateTable(table, data) {
 		for (element in data) {
 			for (item in data[element]) {
+				console.log(item)
 				let row = table.insertRow();
 
 				let date = row.insertCell(0);
