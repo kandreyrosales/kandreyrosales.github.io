@@ -69,16 +69,16 @@
 				let row = table.insertRow();
 
 				let date = row.insertCell(0);
-				date.innerHTML = new Date(item["Date"]).toDateString();
+				date.innerHTML = new Date(item["Date"] * 1000).toDateString();
 
 				let arrival_time = row.insertCell(1);
-				arrival_time.innerHTML = new Date(item["Arrival_Time"]).toDateString();
+				arrival_time.innerHTML = new Date(item["Arrival_Time"] * 1000).toDateString();
 
 				let service_begins = row.insertCell(2);
-				service_begins.innerHTML = new Date(item["Service_Begins2"]).toUTCString();
+				service_begins.innerHTML = new Date(item["Service_Begins2"] * 1000).toUTCString();
 
 				let service_ends = row.insertCell(3);
-				service_ends.innerHTML = new Date(item["Service_Ends"]).toUTCString();
+				service_ends.innerHTML = new Date(item["Service_Ends"] * 1000).toUTCString();
 
 				let menu_item = row.insertCell(4);
 				menu_item.innerHTML = item["Menu_Item_Name"];
