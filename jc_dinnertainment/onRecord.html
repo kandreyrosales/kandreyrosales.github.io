@@ -164,16 +164,16 @@
 				let row = table.insertRow();
 
 				let date = row.insertCell(0);
-				date.innerHTML = item["Date"];
+				date.innerHTML = new Date(item["Date"]).toDateString();
 
 				let arrival_time = row.insertCell(1);
-				arrival_time.innerHTML = item["Arrival_Time"];
+				arrival_time.innerHTML = new Date(item["Arrival_Time"]).toDateString();
 
 				let service_begins = row.insertCell(2);
-				service_begins.innerHTML = item["Service_Begins2"];
+				service_begins.innerHTML = new Date(item["Service_Begins2"]).toUTCString();
 
 				let service_ends = row.insertCell(3);
-				service_ends.innerHTML = item["Service_Ends"];
+				service_ends.innerHTML = new Date(item["Service_Ends"]).toUTCString();
 
 				let menu_item = row.insertCell(4);
 				menu_item.innerHTML = item["Menu_Item_Name"];
@@ -195,7 +195,6 @@
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
-		console.log(data_grouped_by_date, "data to iterate");
 		generateTable(table, data_grouped_by_date)
 	};
 	grist.onRecord(function(record) {
