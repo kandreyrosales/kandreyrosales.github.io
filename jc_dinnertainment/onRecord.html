@@ -175,7 +175,7 @@
 	grist.ready();
 	function generateTable(table, data) {
 		for (element in data) {
-			for (item in data[element]) {
+			data[element].forEach(function (item, i){
 				let row = table.insertRow();
 
 				let date = row.insertCell(0);
@@ -204,13 +204,12 @@
 
 				let extra_order = row.insertCell(8);
 				extra_order.innerHTML = item["extra_order"];
-
-			}
+			})
 		}
 	}
 	async function main(invoice_number){
-  		const rows = await grist.docApi.fetchTable("Choices");
-  		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
+		const rows = await grist.docApi.fetchTable("Choices");
+		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
 		console.log(data_grouped_by_date, "data to iterate");
