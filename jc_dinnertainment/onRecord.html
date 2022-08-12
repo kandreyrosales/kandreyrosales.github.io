@@ -175,8 +175,8 @@
 	grist.ready();
 	function generateTable(table, data) {
 		for (element in data) {
-			let row = table.insertRow();
 			for (item in data[element]) {
+				let row = table.insertRow();
 				let date = row.insertCell(0);
 				date.innerHTML = "NEW CELL1";
 
