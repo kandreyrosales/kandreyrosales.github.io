@@ -176,35 +176,34 @@
 	function generateTable(table, data) {
 		for (element in data) {
 			for (item in data[element]) {
-				console.log(item)
 				let row = table.insertRow();
 
 				let date = row.insertCell(0);
-				date.innerHTML = item.Date;
+				date.innerHTML = item["Date"];
 
 				let arrival_time = row.insertCell(1);
-				arrival_time.innerHTML = item.Arrival_Time
+				arrival_time.innerHTML = item["Arrival_Time"];
 
 				let service_begins = row.insertCell(2);
-				service_begins.innerHTML = item.Service_Begins2;
+				service_begins.innerHTML = item["Service_Begins2"];
 
 				let service_ends = row.insertCell(3);
-				service_ends.innerHTML = item.Service_Ends;
+				service_ends.innerHTML = item["Service_Ends"];
 
 				let menu_item = row.insertCell(4);
-				menu_item.innerHTML = item.Menu_Item_Name;
+				menu_item.innerHTML = item["Menu_Item_Name"];
 
 				let service = row.insertCell(5);
-				service.innerHTML = item.Service_Option;
+				service.innerHTML = item["Service_Option"];
 
 				let guest = row.insertCell(6);
-				guest.innerHTML = item.Guests;
+				guest.innerHTML = item["Guests"];
 
 				let precio_pp = row.insertCell(7);
-				precio_pp.innerHTML = item.Precio_PP;
+				precio_pp.innerHTML = item["Precio_PP"];
 
 				let extra_order = row.insertCell(8);
-				extra_order.innerHTML = item.extra_order;
+				extra_order.innerHTML = item["extra_order"];
 
 			}
 		}
