@@ -120,13 +120,16 @@
 
 	function delete_rows(){
 		document.getElementById("custom_jc_table").deleteRow(0);
+		document.getElementById("custom_jc_table").deleteRow(1);
+		document.getElementById("custom_jc_table").deleteRow(2);
+		document.getElementById("custom_jc_table").deleteRow(3);
 	}
 	async function main(invoice_number){
 		const rows = await grist.docApi.fetchTable("Choices");
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
-		document.getElementsByName("rows-to-delete").remove();
+		delete_rows()
 		generateTable(table, data_grouped_by_date)
 	};
 	grist.onRecord(function(record) {
