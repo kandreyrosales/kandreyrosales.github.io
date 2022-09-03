@@ -119,10 +119,9 @@
 	}
 
 	function delete_rows(){
-		document.getElementById("custom_jc_table").deleteRow(0);
-		document.getElementById("custom_jc_table").deleteRow(1);
-		document.getElementById("custom_jc_table").deleteRow(2);
-		document.getElementById("custom_jc_table").deleteRow(3);
+		if (document.getElementById("custom_jc_table")){
+			document.getElementById("custom_jc_table").deleteRow(0);
+		}
 	}
 	async function main(invoice_number){
 		const rows = await grist.docApi.fetchTable("Choices");
