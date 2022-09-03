@@ -123,7 +123,7 @@
 		//Function to delete all the rows of the table
 		console.log(document.getElementById("custom_jc_table").rows.length);
 		if (document.getElementById("custom_jc_table").rows.length > 0) {
-			for (let i = 0; i < document.getElementById("custom_jc_table").rows.length; i++) {
+			for (let i = 1; i < document.getElementById("custom_jc_table").rows.length; i++) {
 				document.getElementById("custom_jc_table").deleteRow(i);
 			}
 		}
