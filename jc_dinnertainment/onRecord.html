@@ -126,7 +126,7 @@
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
-		document.getElementsByName("rows-to-delete");
+		document.getElementsByName("rows-to-delete").remove();
 		generateTable(table, data_grouped_by_date)
 	};
 	grist.onRecord(function(record) {
