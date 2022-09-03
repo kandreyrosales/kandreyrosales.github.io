@@ -71,6 +71,7 @@
 			<th>Guests</th>
 			<th>Price per Person</th>
 		</tr>
+		<tr style="background: cornflowerblue"><td>Mon Jul 25 2022</td><td>Wed Aug 03 2022</td><td>Wed, 03 Aug 2022 22:00:00 GMT</td><td>Thu, 04 Aug 2022 01:00:00 GMT</td><td></td><td>Breakfast includes Mimosas, Fruit Juice, Fruit, Main Entree</td><td>6</td><td>540.00</td></tr>
 	</table>
 </div>
 <script>
@@ -82,36 +83,50 @@
 
 				let date = row.insertCell(0);
 				date.innerHTML = new Date(item["Date"] * 1000).toDateString();
+				date.className = "rows-to-delete"
 
 				let arrival_time = row.insertCell(1);
 				arrival_time.innerHTML = new Date(item["Arrival_Time"] * 1000).toDateString();
+				arrival_time.className = "rows-to-delete"
 
 				let service_begins = row.insertCell(2);
 				service_begins.innerHTML = new Date(item["Service_Begins2"] * 1000).toUTCString();
+				service_begins.className = "rows-to-delete"
+
 
 				let service_ends = row.insertCell(3);
 				service_ends.innerHTML = new Date(item["Service_Ends"] * 1000).toUTCString();
+				service_ends.className = "rows-to-delete"
 
 				let menu_item = row.insertCell(4);
 				menu_item.innerHTML = item["Menu_Item_Name"];
+				menu_item.className = "rows-to-delete"
 
 				let service = row.insertCell(5);
 				service.innerHTML = item["Service_Option"];
+				service.className = "rows-to-delete"
 
 				let guest = row.insertCell(6);
 				guest.innerHTML = item["Guests"];
+				guest.className = "rows-to-delete"
 
 				let precio_pp = row.insertCell(7);
 				precio_pp.innerHTML = item["Precio_PP"].toFixed(2);
+				precio_pp.className = "rows-to-delete"
 
 			})
 		}
+	}
+
+	function delete_rows(){
+		document.getElementById("custom_jc_table").deleteRow(0);
 	}
 	async function main(invoice_number){
 		const rows = await grist.docApi.fetchTable("Choices");
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
+		document.getElementsByName("rows-to-delete");
 		generateTable(table, data_grouped_by_date)
 	};
 	grist.onRecord(function(record) {
