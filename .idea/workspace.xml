@@ -11,6 +11,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Kevin Rosales" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -51,8 +56,66 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659995702398</updated>
-      <workItem from="1659995704618" duration="38211000" />
+      <workItem from="1659995704618" duration="41508000" />
+      <workItem from="1662236836008" duration="2202000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding removed rows">
+      <created>1662237277499</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662237277499</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding removed rows">
+      <created>1662237511009</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662237511009</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding removed rows">
+      <created>1662238212733</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662238212733</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Adding removed rows">
+      <created>1662238590015</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662238590015</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adding removed rows">
+      <created>1662238675374</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662238675375</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adding removed rows">
+      <created>1662238766071</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662238766071</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adding removed rows">
+      <created>1662238921004</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662238921004</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding removed rows">
+      <created>1662238979785</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662238979785</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,5 +131,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding removed rows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding removed rows" />
   </component>
 </project>
