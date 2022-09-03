@@ -119,9 +119,12 @@
 	}
 
 	function delete_rows(){
+		//Function to delete all the rows of the table
 		console.log(document.getElementById("custom_jc_table").rows.length);
-		if (document.getElementById("custom_jc_table").rows.length > 0){
-			document.getElementById("custom_jc_table").deleteRow(0);
+		if (document.getElementById("custom_jc_table").rows.length > 0) {
+			for (let i = 0; i < document.getElementById("custom_jc_table").rows.length; i++) {
+				document.getElementById("custom_jc_table").deleteRow(i);
+			}
 		}
 	}
 	async function main(invoice_number){
