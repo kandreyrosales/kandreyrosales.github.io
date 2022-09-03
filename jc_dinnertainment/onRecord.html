@@ -122,7 +122,7 @@
 	function delete_rows(){
 		//Function to delete all the rows of the table
 		console.log(document.getElementById("custom_jc_table").rows.length);
-		if (document.getElementById("custom_jc_table").rows.length > 0) {
+		if (document.getElementById("custom_jc_table").rows.length > 1) {
 			for (let i = 1; i < document.getElementById("custom_jc_table").rows.length; i++) {
 				document.getElementById("custom_jc_table").deleteRow(i);
 			}
@@ -133,8 +133,8 @@
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
-		delete_rows()
-		generateTable(table, data_grouped_by_date)
+		delete_rows();
+		generateTable(table, data_grouped_by_date);
 	};
 	grist.onRecord(function(record) {
 		const invoice_number = record.Invoice_Number;
