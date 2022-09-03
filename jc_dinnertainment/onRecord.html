@@ -119,6 +119,7 @@
 	}
 
 	function delete_rows(){
+		console.log(document.getElementById("custom_jc_table").rows.length);
 		if (document.getElementById("custom_jc_table").rows.length > 0){
 			document.getElementById("custom_jc_table").deleteRow(0);
 		}
