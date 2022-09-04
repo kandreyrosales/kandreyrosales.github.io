@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="346afab0-96e1-4570-ac45-2e162950f604" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jc_dinnertainment/onRecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/jc_dinnertainment/onRecord.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659995702398</updated>
       <workItem from="1659995704618" duration="41508000" />
-      <workItem from="1662236836008" duration="3732000" />
+      <workItem from="1662236836008" duration="4603000" />
     </task>
     <task id="LOCAL-00001" summary="Adding removed rows">
       <created>1662237277499</created>
@@ -177,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662240251506</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Adding removed rows">
+      <created>1662240642158</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1662240642158</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
