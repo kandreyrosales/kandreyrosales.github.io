@@ -71,26 +71,11 @@
 			<th>Guests</th>
 			<th>Price per Person</th>
 		</tr>
-		<!--		<tr style="background: cornflowerblue"><td>Mon Jul 25 2022</td><td>Wed Aug 03 2022</td><td>Wed, 03 Aug 2022 22:00:00 GMT</td><td>Thu, 04 Aug 2022 01:00:00 GMT</td><td></td><td>Breakfast includes Mimosas, Fruit Juice, Fruit, Main Entree</td><td>6</td><td>540.00</td></tr>-->
+<!--		<tr style="background: cornflowerblue"><td>Mon Jul 25 2022</td><td>Wed Aug 03 2022</td><td>Wed, 03 Aug 2022 22:00:00 GMT</td><td>Thu, 04 Aug 2022 01:00:00 GMT</td><td></td><td>Breakfast includes Mimosas, Fruit Juice, Fruit, Main Entree</td><td>6</td><td>540.00</td></tr>-->
 	</table>
 </div>
 <script>
-	function ready(fn) {
-		if (document.readyState !== 'loading'){
-			fn();
-		} else {
-			document.addEventListener('DOMContentLoaded', fn);
-		}
-	}
-	ready(function (){
-		grist.ready();
-		grist.onRecord(function(record) {
-			const invoice_number = record.Invoice_Number;
-			const name = record.Name;
-			const date_booked = record.Date_Booked;
-			main(invoice_number)
-		});
-	});
+	grist.ready();
 	function generateTable(table, data) {
 		for (element in data) {
 			data[element].forEach(function (item, i){
@@ -142,14 +127,20 @@
 			}
 		}
 	}
-	function main(invoice_number){
-		const rows = grist.docApi.fetchTable("Choices");
+	async function main(invoice_number){
+		const rows = await grist.docApi.fetchTable("Choices");
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
 		let table = document.getElementById("custom_jc_table");
 		delete_rows();
 		generateTable(table, data_grouped_by_date);
-	}
+	};
+	grist.onRecord(function(record) {
+		const invoice_number = record.Invoice_Number;
+		const name = record.Name;
+		const date_booked = record.Date_Booked;
+		main(invoice_number)
+	});
 
 	function get_records(rows) {
 		// Convert column representation to record representation
