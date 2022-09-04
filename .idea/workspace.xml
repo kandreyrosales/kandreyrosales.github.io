@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="346afab0-96e1-4570-ac45-2e162950f604" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/jc_dinnertainment/onRecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/jc_dinnertainment/onRecord.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659995702398</updated>
       <workItem from="1659995704618" duration="41508000" />
-      <workItem from="1662236836008" duration="6030000" />
+      <workItem from="1662236836008" duration="6750000" />
     </task>
     <task id="LOCAL-00001" summary="Adding removed rows">
       <created>1662237277499</created>
@@ -261,7 +261,28 @@
       <option name="project" value="LOCAL" />
       <updated>1662261873351</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Adding removed rows">
+      <created>1662262095003</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1662262095003</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Adding removed rows">
+      <created>1662262183027</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1662262183027</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Adding removed rows">
+      <created>1662262372980</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1662262372980</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
