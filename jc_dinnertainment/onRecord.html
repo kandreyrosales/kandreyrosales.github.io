@@ -83,9 +83,13 @@
 		}
 	}
 	ready(function() {
-		delete_rows();
 		grist.ready();
-
+		grist.onRecord(function(record) {
+			const invoice_number = record.Invoice_Number;
+			const name = record.Name;
+			const date_booked = record.Date_Booked;
+			main(invoice_number)
+		});
 	})
 
 	function generateTable(table, data) {
@@ -147,12 +151,7 @@
 		delete_rows();
 		generateTable(table, data_grouped_by_date);
 	}
-	grist.onRecord(function(record) {
-		const invoice_number = record.Invoice_Number;
-		const name = record.Name;
-		const date_booked = record.Date_Booked;
-		main(invoice_number)
-	});
+
 
 	function get_records(rows) {
 		// Convert column representation to record representation
