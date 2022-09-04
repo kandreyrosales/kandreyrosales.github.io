@@ -76,7 +76,6 @@
 </div>
 <script>
 	grist.ready();
-	delete_rows();
 	function generateTable(table, data) {
 		for (element in data) {
 			data[element].forEach(function (item, i){
@@ -135,7 +134,7 @@
 		let table = document.getElementById("custom_jc_table");
 		delete_rows();
 		generateTable(table, data_grouped_by_date);
-	};
+	}
 	grist.onRecord(function(record) {
 		const invoice_number = record.Invoice_Number;
 		const name = record.Name;
