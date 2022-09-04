@@ -88,7 +88,6 @@
 			const invoice_number = record.Invoice_Number;
 			const name = record.Name;
 			const date_booked = record.Date_Booked;
-			delete_rows();
 			main(invoice_number)
 		});
 	})
@@ -145,6 +144,7 @@
 		}
 	}
 	function main(invoice_number){
+		delete_rows();
 		const rows = grist.docApi.fetchTable("Choices");
 		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
 		const data_grouped_by_date = group_rows_by_date(filtered);
