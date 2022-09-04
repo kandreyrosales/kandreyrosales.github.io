@@ -71,105 +71,114 @@
 			<th>Guests</th>
 			<th>Price per Person</th>
 		</tr>
-<!--		<tr style="background: cornflowerblue"><td>Mon Jul 25 2022</td><td>Wed Aug 03 2022</td><td>Wed, 03 Aug 2022 22:00:00 GMT</td><td>Thu, 04 Aug 2022 01:00:00 GMT</td><td></td><td>Breakfast includes Mimosas, Fruit Juice, Fruit, Main Entree</td><td>6</td><td>540.00</td></tr>-->
+		<!--		<tr style="background: cornflowerblue"><td>Mon Jul 25 2022</td><td>Wed Aug 03 2022</td><td>Wed, 03 Aug 2022 22:00:00 GMT</td><td>Thu, 04 Aug 2022 01:00:00 GMT</td><td></td><td>Breakfast includes Mimosas, Fruit Juice, Fruit, Main Entree</td><td>6</td><td>540.00</td></tr>-->
 	</table>
 </div>
 <script>
-	delete_rows();
-	grist.ready();
-	function generateTable(table, data) {
-		for (element in data) {
-			data[element].forEach(function (item, i){
-				let row = table.insertRow();
-
-				let date = row.insertCell(0);
-				date.innerHTML = new Date(item["Date"] * 1000).toDateString();
-				date.className = "rows-to-delete"
-
-				let arrival_time = row.insertCell(1);
-				arrival_time.innerHTML = new Date(item["Arrival_Time"] * 1000).toDateString();
-				arrival_time.className = "rows-to-delete"
-
-				let service_begins = row.insertCell(2);
-				service_begins.innerHTML = new Date(item["Service_Begins2"] * 1000).toUTCString();
-				service_begins.className = "rows-to-delete"
-
-
-				let service_ends = row.insertCell(3);
-				service_ends.innerHTML = new Date(item["Service_Ends"] * 1000).toUTCString();
-				service_ends.className = "rows-to-delete"
-
-				let menu_item = row.insertCell(4);
-				menu_item.innerHTML = item["Menu_Item_Name"];
-				menu_item.className = "rows-to-delete"
-
-				let service = row.insertCell(5);
-				service.innerHTML = item["Service_Option"];
-				service.className = "rows-to-delete"
-
-				let guest = row.insertCell(6);
-				guest.innerHTML = item["Guests"];
-				guest.className = "rows-to-delete"
-
-				let precio_pp = row.insertCell(7);
-				precio_pp.innerHTML = item["Precio_PP"].toFixed(2);
-				precio_pp.className = "rows-to-delete"
-
-			})
+	function ready(fn) {
+		if (document.readyState !== 'loading'){
+			fn();
+		} else {
+			document.addEventListener('DOMContentLoaded', fn);
 		}
 	}
+	ready(function() {
+		grist.ready();
+		function generateTable(table, data) {
+			for (element in data) {
+				data[element].forEach(function (item, i) {
+					let row = table.insertRow();
 
-	function delete_rows(){
-		//Function to delete all the rows of the table
-		console.log(document.getElementById("custom_jc_table").rows.length);
-		if (document.getElementById("custom_jc_table").rows.length > 0) {
-			for (let i = 1; i < document.getElementById("custom_jc_table").rows.length; i++) {
-				document.getElementById("custom_jc_table").deleteRow(i);
+					let date = row.insertCell(0);
+					date.innerHTML = new Date(item["Date"] * 1000).toDateString();
+					date.className = "rows-to-delete"
+
+					let arrival_time = row.insertCell(1);
+					arrival_time.innerHTML = new Date(item["Arrival_Time"] * 1000).toDateString();
+					arrival_time.className = "rows-to-delete"
+
+					let service_begins = row.insertCell(2);
+					service_begins.innerHTML = new Date(item["Service_Begins2"] * 1000).toUTCString();
+					service_begins.className = "rows-to-delete"
+
+
+					let service_ends = row.insertCell(3);
+					service_ends.innerHTML = new Date(item["Service_Ends"] * 1000).toUTCString();
+					service_ends.className = "rows-to-delete"
+
+					let menu_item = row.insertCell(4);
+					menu_item.innerHTML = item["Menu_Item_Name"];
+					menu_item.className = "rows-to-delete"
+
+					let service = row.insertCell(5);
+					service.innerHTML = item["Service_Option"];
+					service.className = "rows-to-delete"
+
+					let guest = row.insertCell(6);
+					guest.innerHTML = item["Guests"];
+					guest.className = "rows-to-delete"
+
+					let precio_pp = row.insertCell(7);
+					precio_pp.innerHTML = item["Precio_PP"].toFixed(2);
+					precio_pp.className = "rows-to-delete"
+
+				})
 			}
 		}
-	}
-	function main(invoice_number){
-		const rows = grist.docApi.fetchTable("Choices");
-		const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
-		const data_grouped_by_date = group_rows_by_date(filtered);
-		let table = document.getElementById("custom_jc_table");
-		delete_rows();
-		generateTable(table, data_grouped_by_date);
-	};
 
-	grist.onRecord(function(record) {
-		const invoice_number = record.Invoice_Number;
-		const name = record.Name;
-		const date_booked = record.Date_Booked;
-		main(invoice_number)
-	});
-
-	function get_records(rows) {
-		// Convert column representation to record representation
-		const list = [];
-		for(let i=0; i < rows.id.length; i++) {
-			const record = {};
-			for(const key of Object.keys(rows)) {
-				record[key] = rows[key][i];
+		function delete_rows() {
+			//Function to delete all the rows of the table
+			console.log(document.getElementById("custom_jc_table").rows.length);
+			if (document.getElementById("custom_jc_table").rows.length > 0) {
+				for (let i = 1; i < document.getElementById("custom_jc_table").rows.length; i++) {
+					document.getElementById("custom_jc_table").deleteRow(i);
+				}
 			}
-			list.push(record);
 		}
-		return list;
-	}
 
-	function group_rows_by_date(list_of_array){
-		const groupBy = (array, key) => {
-			// Return the reduced array
-			return array.reduce((result, currentItem) => {
-				// If an array already present for key, push it to the array. Otherwise create an array and push the object.
-				(result[currentItem[key]] = result[currentItem[key]] || []).push( currentItem );
-				// return the current iteration `result` value, this will be the next iteration's `result` value and accumulate
-				return result;
-
-			}, {}); // Empty object is the initial value for result object
+		function main(invoice_number) {
+			const rows = grist.docApi.fetchTable("Choices");
+			const filtered = get_records(rows).filter(r => r.Invoice_Number === invoice_number);
+			const data_grouped_by_date = group_rows_by_date(filtered);
+			let table = document.getElementById("custom_jc_table");
+			delete_rows();
+			generateTable(table, data_grouped_by_date);
 		};
-		return groupBy(list_of_array, "Date")
-	}
+
+		grist.onRecord(function (record) {
+			const invoice_number = record.Invoice_Number;
+			const name = record.Name;
+			const date_booked = record.Date_Booked;
+			main(invoice_number)
+		});
+
+		function get_records(rows) {
+			// Convert column representation to record representation
+			const list = [];
+			for (let i = 0; i < rows.id.length; i++) {
+				const record = {};
+				for (const key of Object.keys(rows)) {
+					record[key] = rows[key][i];
+				}
+				list.push(record);
+			}
+			return list;
+		}
+
+		function group_rows_by_date(list_of_array) {
+			const groupBy = (array, key) => {
+				// Return the reduced array
+				return array.reduce((result, currentItem) => {
+					// If an array already present for key, push it to the array. Otherwise create an array and push the object.
+					(result[currentItem[key]] = result[currentItem[key]] || []).push(currentItem);
+					// return the current iteration `result` value, this will be the next iteration's `result` value and accumulate
+					return result;
+
+				}, {}); // Empty object is the initial value for result object
+			};
+			return groupBy(list_of_array, "Date")
+		}
+	});
 </script>
 </body>
 
